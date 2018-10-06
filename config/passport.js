@@ -26,3 +26,18 @@ passport.use('local-signup', new LocalStrategy({
         })
     })
 }));
+
+passport.use('local-login', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: "password",
+    passReqToCallback: true
+}, (req, email, password, done) => {
+    User.findOne({ email }, (err, user) => {
+        if (err) return done(err);
+        if (!user) return done(null, false, req.flash('loginMessage', "User does not exist" ));
+        if (!user.isValidPassword(password)) return done(null, false, req.flash('loginMessage', "Incorrect Password" ));
+        return done(null, user);
+    })
+}))
+
+module.exports = passport;
