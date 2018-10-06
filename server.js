@@ -25,9 +25,14 @@ app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
 app.use(flash());
 app.use(methodOverride('_method'));
+app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+
+app.get('/', (req,res) => {
+	res.render('index')
+})
 
 app.listen(PORT, (err) => {
     console.log(err || `listening on port ${PORT}....`)
