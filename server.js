@@ -15,9 +15,17 @@ const express = require('express'),
       PORT = 3000;
 
 
-// mongoose.connect(process.env.MONGODB_URI, (err) => {
-//     console.log(err || "Connected to MongoDB")
-// })
+const mongoConnectionString = 'mongodb://localhost/Project_Wayfarer';
+  
+
+mongoose.connect(mongoConnectionString, (err) => {
+	console.log(err || "Connected to MongoDB (passport-authentication)")
+})
+
+const store = new MongoDBStore({
+    uri: mongoConnectionString,
+    collection: 'sessions'
+});
 
 // MIDDLEWARE:
 app.use(logging('dev'));
@@ -29,6 +37,24 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.use(ejsLayouts);
+
+app.use(session({
+	secret: "orangutan",
+	cookie: { maxAge: 600000 },
+	resave: true,
+	saveUninitialized: false,
+	store: store
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+	app.locals.currentUser = req.user;
+	app.locals.loggedIn = !!req.user;
+
+	next();
+})
 
 app.get('/', (req,res) => {
 	res.render('index')
