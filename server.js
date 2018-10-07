@@ -11,7 +11,7 @@ const express = require('express'),
 	  passport = require('passport'),
 	  passportConfig = require('./config/passport'),
 	  methodOverride = require('method-override'),
-    //   usersRouter = require('./routes/users.js'),
+      usersRouter = require('./routes/users.js'),
       PORT = 3000;
 
 
@@ -48,6 +48,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use('/users', usersRouter)
+
 
 app.use((req, res, next) => {
 	app.locals.currentUser = req.user;
@@ -59,6 +61,8 @@ app.use((req, res, next) => {
 app.get('/', (req,res) => {
 	res.render('index')
 })
+
+
 
 app.listen(PORT, (err) => {
     console.log(err || `listening on port ${PORT}....`)

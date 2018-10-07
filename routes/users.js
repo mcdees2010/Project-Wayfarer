@@ -5,3 +5,5 @@ const express = require('express'),
 usersRouter.get('/login', (req, res) => {
     res.render('login', {message: req.flash('loginMessage')});
 })
+
+module.exports = usersRouter;
