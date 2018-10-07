@@ -1,9 +1,14 @@
+<div class="container">
 <div class="col-sm-6 offset-md-3">
     <h1>Edit Profile</h1>
     <form method="post" action="/users/profile?_method=PATCH">
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" name="name" value="<%= currentUser.name %>">
+      </div>
+      <div class="form-group">
+          <label for="currentcity">Current City</label>
+          <input type="text" class="form-control" id="currentcity" name="currentcity" value="<%= currentUser.currentcity %>">
       </div>
       <div class="form-group">
         <label for="email">Email</label>
@@ -17,4 +22,5 @@
     </form>
     <hr>
     <p>Go back to your <a href="/users/profile">profile</a>.</p>
+</div>
 </div>

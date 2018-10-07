@@ -1,9 +1,15 @@
+<div class="container">
 <div class="jumbotron jumbotron-fluid">
 	<div class="container">
-		<h1 class="display-4">Welcome,<%= user.name %></h1>
-		<p class="lead">
-			<%= user.email %>
-		</p>
+    <ul class="collection">
+        <li class="collection-item avatar">
+          <img src="#" alt="" class="circle">
+          <h1 class="display-4">Welcome,<%= user.name %></h1>
+          <p class="lead">
+              <%= user.email %> | <%= user.currentcity %>
+              <a href="/users/profile/edit">Edit Profile</a>
+          </p>  
+    </li>
 	</div>
 </div>
 
@@ -28,4 +34,5 @@
     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam maiores aliquid quibusdam quasi neque aliquam ut eius magnam nisi soluta doloribus corrupti obcaecati optio repellendus aut voluptatem, velit minus...</p>
     <a href="#" class="btn btn-primary">Read More</a>
   </div>
+</div>
 </div>
