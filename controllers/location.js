@@ -13,3 +13,10 @@ exports.create = (req, res) => {
         res.json({success: true, payload: createlocale});
     })
 }
+
+exports.show = (req, res) => {
+    Location.findById(req.params.id, (err, showlocation) => {
+        if (err) res.json({ success: false, err});
+        res.json({ status: true, payload: showlocation})
+    })
+}

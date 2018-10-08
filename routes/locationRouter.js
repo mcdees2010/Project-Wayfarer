@@ -4,5 +4,6 @@ const express = require('express'),
 
 router.get('/', Location.index);
 router.post('/', Location.create);
+router.get('/:id', Location.show);
 
 module.exports = router;
