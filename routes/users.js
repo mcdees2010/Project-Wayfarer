@@ -1,7 +1,8 @@
 const
   express = require('express'),
   usersRouter = new express.Router(),
-  passport = require('passport')
+  passport = require('passport'),
+  moment = require('moment');
 
 
 usersRouter.get('/login', (req, res) => {
@@ -24,7 +25,7 @@ usersRouter.post('/signup', passport.authenticate('local-signup', {
 }));
 
 usersRouter.get('/profile', isLoggedIn, (req, res) => {
-    res.render('profile', { user: req.user });
+    res.render('profile', { user: req.user, moment });
 });
 
 usersRouter.patch('/profile', isLoggedIn, (req, res) => {

@@ -7,6 +7,7 @@
           <h1 class="display-4">Welcome,<%= user.name %></h1>
           <p class="lead">
               <%= user.currentcity %>
+              <%= moment(user.createdAt).fromNow() %>
               <a href="/users/profile/edit">Edit Profile</a>
           </p>  
     </li>

@@ -6,7 +6,7 @@ const
     currentcity: String,
     email: String,
     password: String
-  })
+  }, { timestamps: true });
 
 userSchema.methods.generateHash = function(password){
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8));

@@ -49,7 +49,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use('/users', usersRouter)
 
 
 app.use((req, res, next) => {
@@ -63,6 +62,7 @@ app.get('/', (req,res) => {
 	res.render('index')
 })
 
+app.use('/users', usersRouter)
 app.use('/locations', locationRouter);
 
 
