@@ -11,7 +11,8 @@ const express = require('express'),
 	  passport = require('passport'),
 	  passportConfig = require('./config/passport'),
 	  methodOverride = require('method-override'),
-      usersRouter = require('./routes/users.js'),
+	  usersRouter = require('./routes/users.js'),
+	  locationRouter = require('./routes/locationRouter'),
       PORT = 3000;
 
 
@@ -61,6 +62,8 @@ app.use((req, res, next) => {
 app.get('/', (req,res) => {
 	res.render('index')
 })
+
+app.use('/locations', locationRouter);
 
 
 
