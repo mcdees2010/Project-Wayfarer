@@ -13,6 +13,7 @@ const express = require('express'),
 	  methodOverride = require('method-override'),
 	  usersRouter = require('./routes/users.js'),
 	  locationRouter = require('./routes/locationRouter'),
+	//   postRouter = require('./routes/postRouter'),
       PORT = 3000;
 
 
@@ -63,6 +64,9 @@ app.get('/', (req,res) => {
 })
 
 app.use('/users', usersRouter)
+// app.use('/locations/:id/posts', locationRouter);
+// app.use('/locations/:id/posts', postRouter);
+
 app.use('/locations', locationRouter);
 
 

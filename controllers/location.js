@@ -3,7 +3,7 @@ const Location = require('../models/location');
 exports.index = (req, res) => {
     Location.find({}, (err, locations) => {
         if (err) res.json({ success: false, err});
-        res.render("cities/index", {success: true, payload: locations})
+        res.json ({success: true, payload: locations})
     })
 }
 
@@ -25,12 +25,24 @@ exports.show = (req, res) => {
     })
 };
 
+exports.destroy = (req, res) => {
+    let { id } = req.params;
+    Location.findByIdAndRemove(id, (err, deletedlocation) => {
+        if (err) res.json({success: false, err});
+        res.json({success: true, payload: deletedlocation});
+    })
+}
+
 exports.createPost = (req, res) => {
     let { id } = req.params;
     Location.findById(id, (err, location) => {
         if (err) res.json({ success: false, err });
+        console.log("req", req.params);
+        console.log("location", location);
         // POST DATA IS COMING IN VIA 
-        location.posts.push({...req.body, author: req.user._id });
+        // location.posts.push({...req.body, author: req.user._id });
+        location.posts.push({...req.body});
+
         location.save((err, location) => {
             if (err) res.json({ success: false, err})
             //  ERR LOGIN
