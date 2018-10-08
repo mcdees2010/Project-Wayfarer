@@ -7,6 +7,10 @@ exports.index = (req, res) => {
     })
 }
 
+exports.new = (req, res) => {
+    res.render('new');
+}
+
 exports.create = (req, res) => {
     Location.create(req.body, (err, createlocale) => {
         if (err) res.json({ success: false, err});
