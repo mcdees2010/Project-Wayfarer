@@ -7,3 +7,9 @@ exports.index = (req, res) => {
     })
 }
 
+exports.create = (req, res) => {
+    Location.create(req.body, (err, createlocale) => {
+        if (err) res.json({ success: false, err});
+        res.json({success: true, payload: createlocale});
+    })
+}
