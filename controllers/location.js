@@ -3,8 +3,7 @@ const Location = require('../models/location');
 exports.index = (req, res) => {
     Location.find({}, (err, locations) => {
         if (err) res.json({ success: false, err});
-        res.json({success: true, payload: locations});
-        // res.render('cities/index', {success: true, payload: locations})
+        res.render("../views/cities/index", {success: true, payload: locations})
     })
 }
 
