@@ -1,3 +1,12 @@
 <div class="container">
-    <h1>hello</h1>
+    <% payload.forEach(p => { %>
+        <div class="row">
+            <div class="col l4">
+                    <h1><%= p.city %></h1>
+                    <img class="responsive-img" src="<%= p.pic %>">
+            </div>
+            <div class="col l8">
+            </div>
+        </div>
+    <% }) %>
 </div>

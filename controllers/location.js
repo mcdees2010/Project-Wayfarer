@@ -3,7 +3,7 @@ const Location = require('../models/location');
 exports.index = (req, res) => {
     Location.find({}, (err, locations) => {
         if (err) res.json({ success: false, err});
-        res.render("../views/cities/index", {success: true, payload: locations})
+        res.render("cities/index", {success: true, payload: locations})
     })
 }
 
@@ -32,8 +32,10 @@ exports.createPost = (req, res) => {
         // POST DATA IS COMING IN VIA 
         location.posts.push({...req.body, author: req.user._id });
         location.save((err, location) => {
+            if (err) res.json({ success: false, err})
             //  ERR LOGIN
             // SUCCESS LOGIC
+            res.json({ status: true, payload: location})
         })
     })
 }
