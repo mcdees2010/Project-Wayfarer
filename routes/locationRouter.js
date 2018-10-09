@@ -5,8 +5,8 @@ const express = require('express'),
 router.get('/', Location.index);
 router.post('/', Location.create);
 router.get('/new', Location.new);
-router.get('/:id', Location.show);
-router.delete('/:id', Location.destroy);
+router.get('/:location_id', Location.show);
+router.delete('/:location_id', Location.destroy);
 
 
 
