@@ -3,7 +3,7 @@ const Location = require('../models/location');
 exports.index = (req, res) => {
     Location.find({}, (err, locations) => {
         if (err) res.json({ success: false, err});
-        res.render("cities/index", {success: true, payload: locations})
+        res.render("cities/index", {success: true, locations: locations})
     })
 }
 
@@ -19,9 +19,9 @@ exports.create = (req, res) => {
 }
 
 exports.show = (req, res) => {
-    Location.findById(req.params.id, (err, showlocation) => {
+    Location.findById(req.params.location_id, (err, showlocation) => {
         if (err) res.json({ success: false, err});
-        res.json({ status: true, payload: showlocation})
+        res.render("cities/show", {success: true, location: showlocation})
     })
 };
 
@@ -46,6 +46,10 @@ exports.createPost = (req, res) => {
             res.json({ status: true, payload: post})
         })
     })
+}
+
+exports.newPost = (req, res) => {
+    res.render('posts/new');
 }
 
 exports.showPost = (req, res) => {
