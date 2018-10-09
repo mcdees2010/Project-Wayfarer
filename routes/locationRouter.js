@@ -11,7 +11,7 @@ router.delete('/:location_id', Location.destroy);
 
 
 router.post('/:location_id/posts', Location.createPost);
-router.get('/posts/new', Location.newPost);
+router.get('/:location_id/posts/new', Location.newPost);
 router.get('/:location_id/posts/:id', Location.showPost);
 router.put('/:location_id/posts/:id', Location.updatePost);
 router.delete('/:location_id/posts/:id', Location.deletePost);
