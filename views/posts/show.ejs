@@ -1,10 +1,4 @@
 <div class="container">
-    <h1> <%= location.city %></h1>
+    <h1> <%= post.title %></h1>
     <img src="<%= location.pic %>"/>
-    <ul class="collection">
-        <% location.posts.forEach (p => { %>
-    <li class="collection-item"> <%= p.title %></li>
-    <li class="collection-item"> <%= p.body %></li>
-        <% }) %>
-    </ul>
 </div>

@@ -58,9 +58,7 @@ exports.showPost = (req, res) => {
         if (err) res.json({ success: false, err});
         if (showpost.posts.id(id)) {
             let post = showpost.posts.id(id)
-            res.json({ success: true, payload: post})
-        }else {
-            res.json({ success: false, payload: "location does not exist."})
+            res.render({ success: true, post: post})
         }
     })
 }
