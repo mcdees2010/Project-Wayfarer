@@ -10,6 +10,11 @@ router.delete('/:id', Location.destroy);
 
 
 
-router.post('/:id/posts', Location.createPost);
+router.post('/:location_id/posts', Location.createPost);
+// router.get('/:location_id/posts/:id', Location.showPost);
+
+// show, update, create, delete
+// :location_id/posts
+// :location_id/posts/:id
 
 module.exports = router;
