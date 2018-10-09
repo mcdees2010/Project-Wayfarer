@@ -1,13 +1,17 @@
 <div class="container">
     <a href="/locations/new">add a location:</a>
-    <% payload.forEach(p => { %>
-        <div class="row">
-            <div class="col l4">
-                    <h1><%= p.city %></h1>
-                    <img class="responsive-img" src="<%= p.pic %>">
-            </div>
-            <div class="col l8">
-            </div>
+    <div class="card">
+        <% payload.forEach(p => { %>
+        <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= p.pic %>">
         </div>
-    <% }) %>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= p.city %><i class="material-icons right">more info</i></span>
+            <p><a href="#">make a post</a></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= p.city %><i class="material-icons right">close</i></span>
+        </div>
+        <% }) %>
+    </div>
 </div>
