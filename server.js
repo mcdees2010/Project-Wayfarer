@@ -64,8 +64,6 @@ app.get('/', (req,res) => {
 })
 
 app.use('/users', usersRouter)
-// app.use('/locations/:id/posts', locationRouter);
-// app.use('/locations/:id/posts', postRouter);
 
 app.use('/locations', locationRouter);
 
