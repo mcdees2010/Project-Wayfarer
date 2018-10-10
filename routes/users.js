@@ -53,9 +53,9 @@ function isLoggedIn(req, res, next) {
   res.redirect('/users/login');
 }
 
-router.get('/profile', User.index);
-router.post('/profile', User.create);
-router.post('/profile', User.show);
+router.get('/profile', User.indexPost);
+router.post('/profile', User.createPost);
+router.post('/profile', User.showPost);
 
 module.exports = usersRouter;
 module.exports = router;

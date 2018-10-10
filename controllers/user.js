@@ -3,14 +3,14 @@ const mongoose = require('mongoose'),
       Location = require('../models/location');
       
 
-exports.index = (req, res) => {
+exports.indexPost = (req, res) => {
     User.find({}, (err, users) => {
         if (err) res.json({ success: false, err });
         res.json({ success: true, payload: users })
     })
 };
     
-exports.create = (req, res) => {
+exports.createPost = (req, res) => {
     let { body } = req;
     User.create(body, (err, user) => {
         if (err) res.json({ success: false, err });
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 }
 
 
-exports.show = async (req, res) => {
+exports.showPost = async (req, res) => {
     let id = mongoose.Types.ObjectId(req.params.id);
     console.log(place.post.author.payload.name)
     let user = await User.findById(id);
@@ -33,7 +33,7 @@ exports.show = async (req, res) => {
         // Formats the data that we are requesting.
         $project: {
             title: '$posts.title',
-            body: '$posts.author'
+            body: '$posts.body'
         }}
     ]).exec((err, posts) => {
         if (err) res.json({ status: false, err })
