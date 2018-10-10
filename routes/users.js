@@ -1,7 +1,9 @@
 const
   express = require('express'),
   usersRouter = new express.Router(),
+  router = express.Router(),
   passport = require('passport'),
+  User = require('../controllers/user'),
   moment = require('moment');
 
 
@@ -51,4 +53,8 @@ function isLoggedIn(req, res, next) {
   res.redirect('/users/login');
 }
 
-module.exports = usersRouter
+router.get('/profile', User.index);
+router.post('/profile', User.create);
+
+module.exports = usersRouter;
+module.exports = router;
