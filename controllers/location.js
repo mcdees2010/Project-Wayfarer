@@ -35,15 +35,13 @@ exports.destroy = (req, res) => {
 
 exports.createPost = (req, res) => {
     let { location_id } = req.params;
-    Location.findById(location_id, (err, post) => {
+    Location.findById(location_id, (err, location) => {
         if (err) res.json({ success: false, err });
-        // console.log("req", req.params);
-        // console.log("location", location);
         // location.posts.push({...req.body, author: req.user._id });
-        post.posts.push({...req.body});
-        post.save((err, post) => {
+        location.posts.push({...req.body, author: req.user._id});
+        location.save((err, post) => {
             if (err) res.json({ success: false, err})
-            res.json({ status: true, payload: post})
+            res.redirect('cities/show', { status: true, post: post})
         })
     })
 }

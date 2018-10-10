@@ -14,26 +14,14 @@
 	</div>
 </div>
 
+<% posts.forEach(p => { %>
 <h2>Recent Posts</h2>
 <div class="card" style="margin-bottom: 2rem">
   <div class="card-body">
-    <h5 class="card-title">Disneyland</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam maiores aliquid quibusdam quasi neque aliquam ut eius magnam nisi soluta doloribus corrupti obcaecati optio repellendus aut voluptatem, velit minus...</p>
+    <h5 class="card-title"><%= p.title %></h5>
+    <p class="card-text"><%= p.body %></p>
     <a href="#" class="btn btn-primary">Read More</a>
   </div>
 </div>
-<div class="card" style="margin-bottom: 2rem">
-  <div class="card-body">
-    <h5 class="card-title">New York City</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam maiores aliquid quibusdam quasi neque aliquam ut eius magnam nisi soluta doloribus corrupti obcaecati optio repellendus aut voluptatem, velit minus...</p>
-    <a href="#" class="btn btn-primary">Read More</a>
-  </div>
-</div>
-<div class="card" style="margin-bottom: 2rem">
-  <div class="card-body">
-    <h5 class="card-title">Vancouver</h5>
-    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam maiores aliquid quibusdam quasi neque aliquam ut eius magnam nisi soluta doloribus corrupti obcaecati optio repellendus aut voluptatem, velit minus...</p>
-    <a href="#" class="btn btn-primary">Read More</a>
-  </div>
-</div>
+  <% }) %>
 </div>
