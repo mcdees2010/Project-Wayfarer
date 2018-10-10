@@ -55,6 +55,7 @@ function isLoggedIn(req, res, next) {
 
 router.get('/profile', User.index);
 router.post('/profile', User.create);
+router.post('/profile', User.show);
 
 module.exports = usersRouter;
 module.exports = router;
