@@ -40,14 +40,15 @@ exports.createPost = (req, res) => {
         location.posts.push({...req.body, author: req.user._id});
         location.save((err, post) => {
             if (err) res.json({ success: false, err})
-            res.redirect('cities/req.params/show', { status: true, post: post})
+            res.redirect(`/locations/${location_id}`)
         })
     })
 }
 
 exports.newPost = (req, res) => {
-    res.render('posts/new');
-}
+    let { location_id, id} = req.params;
+    res.render('posts/new', {location_id})
+};
 
 exports.showPost = (req, res) => {
     let { location_id, id } = req.params;
@@ -62,6 +63,19 @@ exports.showPost = (req, res) => {
     })
 }
 
+exports.editPost = (req, res) => {
+    let { location_id, id } = req.params;
+    Location.findById(location_id, (err, location) => {
+    if (err) res.json({success: false, payload: err});
+    let posts = location.posts.id(id);
+    if (posts){
+        res.render('posts/edit', {success: true, post: posts, location_id, id});
+    }else {
+        res.json({ success: false, payload: "Post does not exist."});
+    }
+    })  
+}
+
 exports.updatePost = (req, res) => {
     let {location_id, id} = req.params;
     let { body } = req;
@@ -72,7 +86,7 @@ exports.updatePost = (req, res) => {
             for (let key in body) { post[key] = body[key]}
             updatedpost.save((err, updatedpost) => {
                 if (err) res.json({ success: false, err});
-                res.json({ success: true, payload: updatedpost})
+                res.redirect(`/locations/${location_id}`,{ success: true, payload: updatedpost, location_id, id})
             })
         }else {
             res.json({ success: false, payload: "Location does not exist."})
@@ -89,7 +103,7 @@ exports.deletePost = (req, res) => {
             post.remove();
             deletedpost.save((err, deletedpost) => {
                 if (err) res.json({ success: false, err});
-                res.json({ success: true, payload: deletedpost});
+                res.render(`/locations/${location_id}`, {success: true, delete: deletedpost})
             })
         }else {
             res.json({ success: false, payload: "Post does not exist."})

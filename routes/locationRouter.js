@@ -13,6 +13,7 @@ router.delete('/:location_id', Location.destroy);
 router.post('/:location_id/posts', Location.createPost);
 router.get('/:location_id/posts/new', Location.newPost);
 router.get('/:location_id/posts/:id', Location.showPost);
+router.get('/:location_id/posts/:id/edit', Location.editPost);
 router.put('/:location_id/posts/:id', Location.updatePost);
 router.delete('/:location_id/posts/:id', Location.deletePost);
 
