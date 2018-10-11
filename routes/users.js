@@ -2,8 +2,7 @@ const
   express = require('express'),
   usersRouter = new express.Router(),
   passport = require('passport'),
-  User = require('../controllers/user'),
-  moment = require('moment');
+  User = require('../controllers/user');
 
 
 usersRouter.get('/login', (req, res) => {
@@ -25,9 +24,13 @@ usersRouter.post('/signup', passport.authenticate('local-signup', {
   failureRedirect: "/users/signup"
 }));
 
+usersRouter.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+})
+
 usersRouter.get('/profile', isLoggedIn, User.show);
 usersRouter.get('/:id', isLoggedIn, User.show);
-// { user: req.user, moment }
 
 usersRouter.patch('/profile', isLoggedIn, (req, res) => {
   if(!req.body.password) delete req.body.password;
@@ -40,11 +43,6 @@ usersRouter.patch('/profile', isLoggedIn, (req, res) => {
 
 usersRouter.get('/profile/edit', isLoggedIn, (req, res) => {
   res.render('editProfile');
-})
-
-usersRouter.get('/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
 })
 
 function isLoggedIn(req, res, next) {

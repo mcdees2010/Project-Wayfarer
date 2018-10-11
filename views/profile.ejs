@@ -6,8 +6,8 @@
           <img src="#" alt="" class="circle">
           <h1 class="display-4">Welcome,<%= user.name %></h1>
           <p class="lead">
-              <%= user.currentcity %>
-              <%= moment(user.createdAt).fromNow() %>
+              <%= user.currentcity %> |
+              joined: <%= moment(user.createdAt).fromNow() %>
               <a href="/users/profile/edit">Edit Profile</a>
           </p>  
     </li>
@@ -21,8 +21,7 @@
 <div class="card" style="margin-bottom: 2rem">
   <div class="card-body">
     <h5 class="card-title"><%= p.title %></h5>
-    <p class="card-text"><%= p.body %></p>
-    <a href="#" class="btn btn-primary">Read More</a>
+    <a href="#" class="btn btn-primary">Full Post</a>
   </div>
 </div>
   <% }) %>

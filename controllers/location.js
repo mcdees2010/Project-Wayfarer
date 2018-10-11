@@ -34,6 +34,9 @@ exports.destroy = (req, res) => {
 }
 
 exports.createPost = (req, res) => {
+    if( !req.user){
+        res.json({success: false})
+    }
     let { location_id } = req.params;
     Location.findById(location_id, (err, location) => {
         if (err) res.json({ success: false, err });
