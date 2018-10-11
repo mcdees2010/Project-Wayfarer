@@ -35,17 +35,19 @@ exports.destroy = (req, res) => {
 
 exports.createPost = (req, res) => {
     if( !req.user){
-        res.json({success: false})
-    }
-    let { location_id } = req.params;
-    Location.findById(location_id, (err, location) => {
-        if (err) res.json({ success: false, err });
-        location.posts.push({...req.body, author: req.user._id});
-        location.save((err, post) => {
-            if (err) res.json({ success: false, err})
-            res.redirect(`/locations/${location_id}`)
+        res.json({status:401, message:"you are not authorized"})
+    }else{
+        let { location_id } = req.params;
+        Location.findById(location_id, (err, location) => {
+            if (err) res.json({ success: false, err });
+            location.posts.push({...req.body, author: req.user._id});
+            location.save((err, post) => {
+                if (err) res.json({ success: false, err})
+                res.redirect(`/locations/${location_id}`)
+            })
         })
-    })
+    }
+
 }
 
 exports.newPost = (req, res) => {
