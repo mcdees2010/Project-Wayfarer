@@ -9,11 +9,11 @@ const express = require('express'),
 	  session = require('express-session'),
 	  MongoDBStore = require('connect-mongodb-session')(session),
 	  passport = require('passport'),
+	  path = require('path'),
 	  passportConfig = require('./config/passport'),
 	  methodOverride = require('method-override'),
 	  usersRouter = require('./routes/users.js'),
 	  locationRouter = require('./routes/locationRouter'),
-	//   postRouter = require('./routes/postRouter'),
       PORT = 3000;
 
 
@@ -30,6 +30,7 @@ const store = new MongoDBStore({
 });
 
 // MIDDLEWARE:
+app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(logging('dev'));
 app.use(cookieParser());
 app.use(express.urlencoded({extended: true}));
