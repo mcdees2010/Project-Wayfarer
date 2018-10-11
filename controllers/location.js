@@ -40,7 +40,7 @@ exports.createPost = (req, res) => {
         location.posts.push({...req.body, author: req.user._id});
         location.save((err, post) => {
             if (err) res.json({ success: false, err})
-            res.redirect('cities/req.params/show', { status: true, post: post})
+            res.redirect(`/locations/${location_id}`)
         })
     })
 }
