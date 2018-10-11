@@ -86,7 +86,7 @@ exports.updatePost = (req, res) => {
             for (let key in body) { post[key] = body[key]}
             updatedpost.save((err, updatedpost) => {
                 if (err) res.json({ success: false, err});
-                res.redirect(`/locations/${location_id}`,{ success: true, payload: updatedpost, location_id, id})
+                res.redirect(`/locations/${location_id}`)
             })
         }else {
             res.json({ success: false, payload: "Location does not exist."})
