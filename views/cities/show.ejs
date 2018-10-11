@@ -11,7 +11,9 @@
     <div class="card-action">
       <a href="/locations/<%= location._id %>/posts/<%= p._id %>">read post</a>
       <a href="/locations/<%= location._id %>/posts/<%= p._id %>/edit">edit post</a>
-    
+      <form method="POST" action='/locations/<%= location._id %>/posts/<%= p._id %>?_method=DELETE'>
+        <button class="btn btn-danger btn-block" type="submit">Delete</button>
+    </form>
     </div>
   </div>  
 </div>

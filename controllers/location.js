@@ -103,12 +103,10 @@ exports.deletePost = (req, res) => {
             post.remove();
             deletedpost.save((err, deletedpost) => {
                 if (err) res.json({ success: false, err});
-                res.render(`/locations/${location_id}`, {success: true, delete: deletedpost})
+                res.redirect(`/locations/${location_id}`)
             })
         }else {
             res.json({ success: false, payload: "Post does not exist."})
         }
     })
 }
-
-// redirect(`/locations/${location_id}`);
