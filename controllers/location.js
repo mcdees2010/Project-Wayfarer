@@ -110,3 +110,5 @@ exports.deletePost = (req, res) => {
         }
     })
 }
+
+// redirect(`/locations/${location_id}`);
