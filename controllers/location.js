@@ -1,4 +1,4 @@
-const Location = require('../models/location');
+const Location = require('../models/Location');
 
 exports.index = (req, res) => {
     Location.find({}, (err, locations) => {
