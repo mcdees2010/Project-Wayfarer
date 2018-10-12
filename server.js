@@ -1,3 +1,4 @@
+// require('dotenv').config();
 
 const express = require('express'),
       app = express(),
@@ -17,8 +18,8 @@ const express = require('express'),
       PORT = 3000;
 
 
-const mongoConnectionString = 'mongodb://localhost/Project_Wayfarer';
-  
+const mongoConnectionString = `mongodb://localhost/Project_Wayfarer`;
+// process.env.${MONGOD_URI}
 
 mongoose.connect(mongoConnectionString, (err) => {
 	console.log(err || "Connected to MongoDB (passport-authentication)")
