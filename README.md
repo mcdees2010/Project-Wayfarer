@@ -6,6 +6,8 @@ A travel community where you can make posts and share your favorite adventures a
 
 ### WEBSITE LINK
 
+<a href="https://cryptic-brook-23572.herokuapp.com/">Wayfarer</a>
+
 ### Technologies Used
 
 - HTML
@@ -21,3 +23,9 @@ A travel community where you can make posts and share your favorite adventures a
 - Express
 
 ### ISSUES / NEXT STEPS
+
+- styling
+
+- getting the user id to be an actual username instead of the actual user id showing
+
+- getting to more bonuses
