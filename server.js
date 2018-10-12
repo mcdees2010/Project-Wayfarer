@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 
 const express = require('express'),
       app = express(),
@@ -14,19 +14,18 @@ const express = require('express'),
 	  passportConfig = require('./config/passport'),
 	  methodOverride = require('method-override'),
 	  usersRouter = require('./routes/users.js'),
-	  locationRouter = require('./routes/locationRouter'),
-      PORT = 3000;
+	  locationRouter = require('./routes/locationRouter');
 
 
-const mongoConnectionString = `mongodb://localhost/Project_Wayfarer`;
+// const mongoConnectionString = `mongodb://localhost/Project_Wayfarer`;
 // process.env.${MONGOD_URI}
 
-mongoose.connect(mongoConnectionString, (err) => {
+mongoose.connect(process.env.MONGODB_URI, (err) => {
 	console.log(err || "Connected to MongoDB (passport-authentication)")
 })
 
 const store = new MongoDBStore({
-    uri: mongoConnectionString,
+    uri: process.env.MONGODB_URI,
     collection: 'sessions'
 });
 
@@ -71,6 +70,6 @@ app.use('/locations', locationRouter);
 
 
 
-app.listen(PORT, (err) => {
-    console.log(err || `listening on port ${PORT}....`)
+app.listen(process.env.PORT, (err) => {
+    console.log(err || `listening on port ${process.env.PORT}....`)
 })
