@@ -16,10 +16,6 @@ const express = require('express'),
 	  usersRouter = require('./routes/users.js'),
 	  locationRouter = require('./routes/locationRouter');
 
-
-// const mongoConnectionString = `mongodb://localhost/Project_Wayfarer`;
-// process.env.${MONGOD_URI}
-
 mongoose.connect(process.env.MONGODB_URI, (err) => {
 	console.log(err || "Connected to MongoDB (passport-authentication)")
 })
@@ -29,7 +25,6 @@ const store = new MongoDBStore({
     collection: 'sessions'
 });
 
-// MIDDLEWARE:
 app.use('/static', express.static(path.join(__dirname, 'public')))
 app.use(logging('dev'));
 app.use(cookieParser());
@@ -67,7 +62,6 @@ app.get('/', (req,res) => {
 app.use('/users', usersRouter)
 
 app.use('/locations', locationRouter);
-
 
 
 app.listen(process.env.PORT, (err) => {
