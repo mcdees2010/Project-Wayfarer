@@ -8,6 +8,12 @@ A travel community where you can make posts and share your favorite adventures a
 
 <a href="https://cryptic-brook-23572.herokuapp.com/">Wayfarer</a>
 
+<img src="https://i.imgur.com/BcbZ1u7.jpg">
+
+<img src="https://i.imgur.com/T039PJP.png">
+
+<img src="https://i.imgur.com/yEp1Q1h.png">
+
 ### Technologies Used
 
 - HTML
