@@ -1,12 +1,12 @@
 <div class="container">
 <h1> <%= location.city %></h1>
-<img src="<%= location.pic %>" style="height: 250px; width: 260px;"/>
+<img src="<%= location.pic %>"/>
 
 <% if( loggedIn ){ %>
-  <a href="/locations/<%= location._id %>/posts/new">add a post:</a>
+  <a href="/locations/<%= location._id %>/posts/new" class="btn">add a post:</a>
 <% } %>
 <% location.posts.forEach (p => { %>
-<div class="card hoverable">
+  <div class="card hoverable">
     <div class="card-content black-text">
       <span class="card-title"><%= p.title %></span>
     </div>
@@ -15,12 +15,10 @@
       <% if (loggedIn && currentUser._id.equals(p.author)) { %>
       <a href="/locations/<%= location._id %>/posts/<%= p._id %>/edit">edit post</a>
       <form method="POST" action='/locations/<%= location._id %>/posts/<%= p._id %>?_method=DELETE'>
-        <button class="btn btn-danger btn-block" type="submit">Delete</button>
+        <button class="delete btn btn-danger btn-block" type="submit">Delete</button>
       </form>
       <% } %>
-    </div>
-  </div>  
-</div>
-</div>
+  </div>
+  </div>
 <% }) %>
 </div>

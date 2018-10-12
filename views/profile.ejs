@@ -3,8 +3,8 @@
 	<div class="container">
     <ul class="collection">
         <li class="collection-item avatar">
-          <img src="#" alt="" class="circle">
-          <h1 class="display-4">Welcome,<%= user.name %></h1>
+          <img src="https://cdn3.iconfinder.com/data/icons/nature-37/120/tempaltaaaeaqas-512.png" alt="" class="circle">
+          <h1 class="display-4"><%= user.name %></h1>
           <p class="lead">
               <%= user.currentcity %> |
               joined: <%= moment(user.createdAt).fromNow() %>
@@ -14,7 +14,7 @@
 	</div>
 </div>
 
-<!-- <a class="waves-effect waves-light btn-large">view locations</a> -->
+<a href="/locations" class="locations waves-effect waves-light btn-large">view locations</a>
 
 <h2>Recent Posts</h2>
 <% posts.forEach(p => { %>
