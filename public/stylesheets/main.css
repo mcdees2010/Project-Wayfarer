@@ -1,3 +1,24 @@
 body {
     background: lightcyan;
 }
+
+.brand-logo {
+    font-family: 'Pacifico', cursive;
+}
+
+.top-wrapper {
+
+    background-image: url(https://images.pexels.com/photos/804410/pexels-photo-804410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover;
+    color: white;
+    height: 100vh;
+    }
+    
+.top-wrapper h1 {
+    opacity: 0.7;
+    font-size: 45px;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-family: 'Pacifico', cursive;
+    }
