@@ -1,7 +1,7 @@
 const mongoose = require('mongoose'),
       User = require('../models/User'),
       moment = require('moment'),
-      Location = require('../models/location');
+      Location = require('../models/Location');
       
 
 exports.index = (req, res) => {
