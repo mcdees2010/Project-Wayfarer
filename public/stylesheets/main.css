@@ -67,3 +67,71 @@ h2 {
 .card {
     margin-top: 40px;
 }
+
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+.parallax-container-one {
+  background-image: url(https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd27a515bce2dade58bc288fde28f290&auto=format&fit=crop&w=2593&q=80);
+  background-size: cover;
+  height: 100vh;
+}
+
+.parallax-container-two {
+  background-image: url(https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cc1f82f635206f99e3132d9ebd24db6c&auto=format&fit=crop&w=2551&q=80);
+  background-size: cover;
+  height: 100vh;
+}
+
+.parallax-container-three {
+    background-image: url(https://i.imgur.com/9rY4vcQ.png);
+    background-size: cover;
+    height: 100vh;
+}
+
+.locationpic {
+    height: 500px;
+    width: 900px;
+}
