@@ -7,24 +7,27 @@
           <p>make posts and share your favorite stories from cities all around the world.</p>
         </div>
     </div>
-<% locations.forEach(p => { %>
-<div class="row">
-      <div class="col s12 m6">
-        <div class="card hoverable">
-          <div class="card-image">
-            <img src="<%= p.pic %>">
-            <span class="card-title"><%= p.city %></span>
-          </div>
-          <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4"><i class="material-icons left">more info</i><br /></span>
-          </div>
-          <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"><%= p.city %></a><i class="material-icons right">close</i></span>
-              <p>facts</p>
-              <p><a href="/locations/<%= p._id %>">See Posts</a></p>  
-          </div>
+
+   <% locations.forEach(p => { %>
+      <div class="row">
+            <div class="col s12 m6">
+              <div class="card hoverable">
+                <div class="card-image">
+                  <img src="<%= p.pic %>">
+                  <span class="card-title"><%= p.city %></span>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4"><i class="material-icons left"><a style="color: black;"href="/locations/<%= p._id %>">See Posts</a></i><br /></span>
+                </div>
+              </div>
+            </div>
         </div>
+        <% }) %>
       </div>
-  </div>
-  <% }) %>
+
+
+
 </div>
+
+
+    
